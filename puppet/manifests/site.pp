@@ -1,6 +1,7 @@
 include jruby
 include apache2
 include postgres
+include tomcat7
 
 group { "puppet":
   ensure => "present",
