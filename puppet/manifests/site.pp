@@ -17,7 +17,18 @@ Exec["apt-update"] -> Package <| |>
 
 package { "openjdk-7-jdk" :
   ensure => present
-  }
+}
+
 package { "curl" :
-  ensure => present
+  ensure => present  	
+}
+
+package { ["emacs23","gem","git-core"]:
+  ensure  => latest,
+}
+
+package { ["bundler"]:
+  ensure   => present,
+  provider => 'gem',
+  require => Package['gem']
 }
