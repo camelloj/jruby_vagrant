@@ -1,3 +1,4 @@
+include apt::update
 include jruby
 include apache2
 include postgres
@@ -15,5 +16,8 @@ exec { "apt-update" :
 Exec["apt-update"] -> Package <| |>
 
 package { "openjdk-7-jdk" :
+  ensure => present
+  }
+package { "curl" :
   ensure => present
 }
